@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #faf7f2;
+    --ink: #0f0e0d;
+    --amber: #e8a020;
+    --amber-light: #f5c842;
+    --sage: #8a9e8c;
+    --muted: #7d7465;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-ink-900 text-cream px-6 py-3 font-body font-medium text-sm
+    hover:bg-ink-700 transition-all duration-200 cursor-pointer
+    disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply border border-ink-900 text-ink-900 px-6 py-3 font-body font-medium text-sm
+    hover:bg-ink-900 hover:text-cream transition-all duration-200 cursor-pointer;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 text-white px-4 py-2 font-body font-medium text-sm
+    hover:bg-red-700 transition-all duration-200 cursor-pointer;
+  }
+
+  .input-field {
+    @apply w-full border border-ink-200 bg-white px-4 py-3 text-ink-900
+    font-body text-sm placeholder:text-ink-300
+    focus:outline-none focus:border-ink-900 transition-colors duration-200;
+  }
+
+  .card {
+    @apply bg-white border border-ink-100 shadow-sm hover:shadow-md transition-shadow duration-300;
+  }
+}
+
+/* Skeleton loader */
+.skeleton {
+  background: linear-gradient(90deg, #e8e6e0 25%, #f0ede8 50%, #e8e6e0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
